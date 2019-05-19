@@ -1,4 +1,5 @@
 from importlib import import_module
+import random
 
 def lazy_import(module_name):
 	"""Funcion para importar un modulo cuando sea necesario usarlo"""
@@ -16,6 +17,13 @@ def lazy_import(module_name):
 		# pasariamos a escribir math.sqrt(4)
 		globals()[module_name] = module
 
-lazy_import('math')
+if random.choice([True, False]):
+	# Hacemos alguna que otra boludez
+	print("Trabajando con algo")
 
-print(math.sqrt(4))
+else:
+	# En este caso decidimos importar cualquier modulo. En este caso como ejemplo puede ser math
+	lazy_import("math")
+	
+	print(math.sqrt(4))
+	
